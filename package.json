@@ -1,0 +1,32 @@
+{
+  "name": "slack-rtm-presence",
+  "version": "1.0.1",
+  "description": "A lightweight way to keep your bot \"present\" in all teams.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FoundersAS/slack-rtm-presence.git"
+  },
+  "keywords": [
+    "slack",
+    "websocket",
+    "rtm",
+    "presence"
+  ],
+  "contributors": [
+    "Joshua Karjala-Svendsen <joshua@founders.as> (https://github.com/joshuakarjala)",
+    "Tobias Baunbæk <tobias@founders.as> (https://github.com/freeall)"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FoundersAS/slack-rtm-presence/issues"
+  },
+  "homepage": "https://github.com/FoundersAS/slack-rtm-presence#readme",
+  "dependencies": {
+    "request": "^2.78.0",
+    "ws": "^1.1.1"
+  }
+}
