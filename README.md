@@ -12,7 +12,7 @@ $ npm install slack-rtm-presence
 ```
 
 ## Usage
-You just call the module with a `teamToken` and functions `connectionError` and `slackError`. These both call `reconnect()` to attempt to reconnect to slack. If you call `reconnect(false)` with a value the module will stop trying to reconnect for this team.
+You just call the module with a `teamToken` and functions `connectionError` and `slackError`. These both call `reconnect()` to attempt to reconnect to slack. If you call `reconnect(false)` with a value the module will stop trying to reconnect for this team. This is important as it terminates any Web Socket and all event listeners.
 
 You can optionally pass a third function `wsError` which will receive any errors from the Web Socket itself.
 
@@ -26,6 +26,8 @@ var connectionError = function (err, reconnect) {
 
 var slackError = function (err, reconnect) {
   console.log(err)
+
+  // on some specific error messages we might not want to reconnect
   if (err.message === 'invalid_auth' || err.message === 'account_inactive' || err.message === 'not_authed') return reconnect(false);
   reconnect();
 }
