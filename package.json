@@ -1,6 +1,6 @@
 {
   "name": "slack-rtm-presence",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "A lightweight way to keep your bot \"present\" in all teams.",
   "main": "index.js",
   "scripts": {

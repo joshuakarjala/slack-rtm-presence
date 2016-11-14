@@ -24,11 +24,6 @@ module.exports = function (token, connectionError, slackError, wsError) {
     }
   };
 
-  function reconnect(abort) {
-    if (abort !== undefined) return destroy();
-    connect();
-  };
-
   function connect () {
     clearInterval(pingIntervalId);
     if (destroyed) return;
@@ -45,9 +40,9 @@ module.exports = function (token, connectionError, slackError, wsError) {
       }, function (err, res) {
         if (destroyed) return;
 
-        if (err || res.statusCode >= 400) return connectionError(err || new Error(JSON.stringify(res.body)), reconnect);
+        if (err || res.statusCode >= 400) return connectionError(err || new Error(JSON.stringify(res.body)), connect);
 
-        if (!res.body.ok) return slackError(new Error(res.body.error), reconnect);
+        if (!res.body.ok) return slackError(new Error(res.body.error), connect);
 
         var ws = new WS(res.body.url, {
           agent: null
