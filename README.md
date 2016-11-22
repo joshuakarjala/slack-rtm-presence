@@ -17,7 +17,7 @@ You just call the module with a `teamToken` and functions `connectionError` and 
 You can optionally pass a third function `wsError` which will receive any errors from the Web Socket itself.
 
 ```javascript
-var slackRTMPresence = require('./index');
+var slackRTMPresence = require('slack-rtm-presence');
 
 var connectionError = function (err, reconnect) {
   console.log(err);
